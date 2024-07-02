@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='cities.js')}}"></script>
+{% endblock %}
+
+{% block title %}
+    Cities
+{% endblock %}
+
+{% block main %}
+
+    <div name="cities-state-input">
+        <div class="mb-3">
+            <p><label for="citiesStateInput">State Filter</label></p>
+            <select id="citiesStateInput" name="citiesStateInput" required>
+
+            </select>
+        </div>
+    </div>
+
+    <div name="cities-input">
+        <form action="/cities" method="get" id="search-cities">
+            <div class="mb-3">
+                <p><label for="citiesInput">Choose a Brazilian City:</label></p>
+                <!-- this will be the submitted value -->
+                <select id="citiesInput" name="citiesInput" required>
+                    <option disabled selected value="">City</option>
+                </select>
+                <button class="btn btn-primary" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+
+    <h2 id="user-cities" style="background: rgb(33,37,41); color: #ffffff; border-radius: 3px;"></h2>
+
+    <div style="width: 100%; height: 100%;">
+        <canvas id="cities-chart"></canvas>
+    </div>
+
+    <div style="width: 100%; height: 100%;">
+        <canvas id="cities-population-chart"></canvas>
+    </div>
+
+{% endblock %}

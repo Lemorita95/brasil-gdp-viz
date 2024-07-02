@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='index.js')}}"></script>
+{% endblock %}
+
+{% block title %}
+    Country
+{% endblock %}
+
+{% block main %}
+
+    <div  class="row justify-content-evenly" style="margin-bottom: .5rem">
+        <button type="button" class="btn btn-primary col-2" id="country-change-brl">
+            Show in BRL
+        </button>
+        <button type="button" class="btn btn-success col-2" id="country-change-usd">
+            Show in USD
+        </button>
+    </div>
+
+    <h2 style="background: rgb(33,37,41); color: #ffffff; border-radius: 3px;">Country GDP</h2>
+
+
+    <div name="div-country-chart">
+
+        <div style="height: 50vh; width: 100%;">
+            <canvas id="country-chart"></canvas>
+        </div>
+     
+    </div>
+
+    <div name="country-table">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-start">Year</th>
+                    <th class="text-end">Y-o-Y Nominal Gain</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for g in gain %}
+                    <tr>
+                        <td class="text-start">{{ g.years }}</td>
+                        <td class="text-end">{{ g.gain | percentage }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,43 @@
+-- SQL
+    -- create CITIES table on IBGE DB
+        CREATE TABLE cities (
+            id TEXT PRIMARY KEY NOT NULL,
+            name TEXT NOT NULL,
+            states_id TEXT NOT NULL,
+            FOREIGN KEY(states_id) REFERENCES states(id)
+        );
+        CREATE UNIQUE INDEX id ON cities (id);
+
+    -- create STATES table on IBGE DB
+        CREATE TABLE states (
+            id TEXT PRIMARY KEY NOT NULL,
+            shortname TEXT NOT NULL,
+            name TEXT NOT NULL
+        );
+
+    -- create GDP table on IBGE DB
+        CREATE TABLE gdp (
+            cities_id TEXT NOT NULL,
+            year INTEGER NOT NULL,
+            valor REAL,
+            FOREIGN KEY(cities_id) REFERENCES cities(id)
+        );
+
+    -- create POPULATION table on IBGE DB
+        CREATE TABLE population (
+            cities_id TEXT NOT NULL,
+            year INTEGER NOT NULL,
+            valor INTEGER,
+            FOREIGN KEY(cities_id) REFERENCES cities(id)
+        );
+
+-- PYTHON
+    -- launch flask
+        -- with __name__ == '__main__'
+            $ python app.py            
+            
+        -- without
+            $ flask --app app.py --debug run
+
+    -- run python file
+        $ python filename.py

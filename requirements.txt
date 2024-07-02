@@ -1,0 +1,12 @@
+#python libraries
+flask
+flask-Session
+sqlite3
+
+csv
+datetime
+pytz
+requests
+urllib
+uuid
+numpy
