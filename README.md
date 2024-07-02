@@ -1,5 +1,7 @@
 # BRAZIL GDP
 
+My final project for CS50.
+
 This displays GDP data from IBGE (Brazilian Institute of Geography and Statistics) at a **Country**, **State** and **City** level.
 
 #### Video Demo:  [Youtube](https://youtu.be/RC94eA_uXYc)
